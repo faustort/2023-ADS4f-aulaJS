@@ -1,7 +1,7 @@
 // Função simples
 function digaOi() {
   alert("oi");
-}
+} 
 
 // Função anônima - não tem nome
 const digaOi2 = () => {
