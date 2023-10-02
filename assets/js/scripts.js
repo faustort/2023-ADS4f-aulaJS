@@ -1,4 +1,3 @@
-console.log("Olá Mundo!");
 // Função simples
 function digaOi() {
   alert("oi");
