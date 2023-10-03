@@ -26,17 +26,20 @@ function criarElementos(data) {
   document.body.append(div);
 }
 
+// realiza a busca de dados em uma api
+// e retorna uma promise
 const busca = fetch("https://dummyjson.com/users")
-    .then(
+    .then( // aqui eu trato o dado que veio da api
         function (response) {
             console.log("Dado que veio sem tratamento: ",response);    
             return response.json();
         }
     )
-    .then(
+    .then( // aqui eu trato o json que veio da function anterior
         function (data){
+            // aqui recebo somente o objeto users do json
             const usuarios = data.users;
-
+            // aqui eu percorro o array de usuários
             usuarios.forEach(
                 (usuario) => 
                     criarElementos({
@@ -44,6 +47,5 @@ const busca = fetch("https://dummyjson.com/users")
                         texto: usuario.email
                     })
             )
-
         }
     );
