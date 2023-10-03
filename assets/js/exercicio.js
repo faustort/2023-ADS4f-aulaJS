@@ -21,6 +21,7 @@ const buscaPosts = fetch("https://dummyjson.com/posts")
   .then((data) => {
     const posts = data.posts;
     posts.forEach((post) => {
+      // forma extensa de criar o card
       const card = document.createElement("div");
       const cardBody = document.createElement("div");
       const titulo = document.createElement("h5");
@@ -35,5 +36,21 @@ const buscaPosts = fetch("https://dummyjson.com/posts")
       cardBody.append(texto);
       card.append(cardBody);
       document.body.append(card);
+
+      // forma mais simples de criar o card
+      formaMaisSimples({
+        titulo: post.title,
+        descricao: post.description,
+      });
     });
   });
+
+function formaMaisSimples(dados) {
+  document.body.innerHTML += `
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">${dados.titulo}</h5>
+        <p class="card-text">${dados.descricao}</p>
+    </div>
+    </div>`;
+}
